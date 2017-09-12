@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//1.for循环
+			/*var arr = [3,5,7,9,34,56,66,8];
+			var i = 0;
+			for (;i<arr.length;i++) {
+				console.log(arr[i])
+			}
+			
+			
+			//2.for...in
+			var arr = [3,5,7,9,34,56,66,8];
+			for (var i in arr) {
+				console.log(arr[i])
+			}*/
+			
+			
+			//for...of
+			let arr = ['a','b','c','d','e','f','g','h','i'];
+			for (let i of arr) {
+				console.log(i)
+			}
+			
+			
+			//foreach
+			var Arr = [1,2,3,4,5,6,7,8,9]
+			Arr.forEach(function(item,index){
+				console.log(item,index);//参数item表示每一项，参数index表示每一项的下标
+			})
+			
+			
+			//map
+			var Array = [1,2,3,4,5];
+			Array.map(function(value,index){
+				console.log(value);//遍历								
+			})
+			
+			
+			//map方法还可以让原数组每项改变
+			var Array = [1,2,3,4,5];
+			var newArr = Array.map(function(value,index){
+				return value+3;
+			})
+			console.log(newArr)
+		</script>
+	</body>
+</html>
