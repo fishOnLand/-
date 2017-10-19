@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				width: 500px;
+				height: 400px;
+				margin: 100px auto;
+				position: relative;
+			}
+			div{
+				width: 500px;
+				height: 360px;
+				position: absolute;
+				left: 0;
+				top: 40px;
+				display: none;
+			}
+			button{
+				border: none;
+				width: 163px;
+				height: 40px;
+			}		
+		</style>
+	</head>
+	<body>
+		<section class="box">
+			<button id="btn1" style="color: red;">红色</button>
+			<button id="btn2" style="color: yellow;">黄色</button>
+			<button id="btn3" style="color: blue;">蓝色</button>
+			<div id="red" class="red" style="background: red;display: block;"></div>
+			<div id="yellow" class="yellow" style="background: yellow;"></div>
+			<div id="blue" class="blue" style="background: blue;"></div>
+		</section>
+		<script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var $btn = $('button');
+			var $box = $('div');
+			//console.log($btn,$box)
+			$btn.on('click',function(){
+				$box.eq($(this).index()).show().siblings('div').hide();
+			})
+			/*for (var i = 0;i<btn.length;i++)  {
+				btn[i].onclick = function(){
+					console.log(i)//不管点击哪个按钮 都会是i--->3 
+				}
+			}
+			for (var i = 0;i<btn.length;i++)  {
+				(function(i){//形参0,1,2
+					btn[i].onclick = function(){
+						console.log(i)//当前点击哪个按钮就显示哪个---因为闭包会将i这个变量保存下来
+					}
+				})(i)//实参0,1,2
+			}*/
+			//3.tab之闭包
+			/*var btn = document.getElementsByTagName('button');
+			var box = document.getElementsByTagName('div')
+			for (var i = 0;i<btn.length;i++) {
+				(function(i){
+					//console.log(i)//0,1,2
+					btn[i].onclick = function(){
+						for (var j=0;j<btn.length;j++) {
+							console.log(j)
+							box[j].style.display = 'none'
+						}
+						box[i].style.display = 'block'
+					}
+				})(i)
+			}*/
+			//2.tab之for循环与this
+			/*var btn = document.getElementsByTagName('button');
+			var box = document.getElementsByTagName('div');			
+			for(var i = 0;i<btn.length;i++){
+				//console.log(i)//0,1,2
+				btn[i].index=i;
+				btn[i].onclick = function(){
+					//console.log(i)//3
+					for(var i = 0;i<btn.length;i++){
+						console.log(i)//0,1,2
+						box[i].style.display = 'none'
+					}					
+					box[this.index].style.display = 'block'			
+				}				
+			}*/
+			//1.tab之原始写法
+			/*var btn1 = document.getElementById('btn1');
+			var btn2 = document.getElementById('btn2');
+			var btn3 = document.getElementById('btn3');
+			var red = document.getElementById('red');
+			var yellow = document.getElementById('yellow');
+			var blue = document.getElementById('blue');
+			btn1.onclick = function(){
+				red.style.display = 'block';
+				yellow.style.display = 'none';
+				blue.style.display = 'none';
+			}
+			btn2.onclick = function(){
+				red.style.display = 'none';
+				yellow.style.display = 'block';
+				blue.style.display = 'none';
+			}
+			btn3.onclick = function(){
+				red.style.display = 'none';
+				yellow.style.display = 'none';
+				blue.style.display = 'block';
+			}*/
+		</script>
+	</body>
+</html>
