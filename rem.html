@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>无标题文档</title>
+		<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+
+
+		 <!--可布局宽度 =  物理像素/dpr/initial-scale  -->
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html,body{
+				width: 100%;
+				height: 100%;
+				/* overflow: hidden; */
+			}
+			
+			
+		</style>
+
+		<script>
+			// var ratio = window.devicePixelRatio;
+
+			// var meta = document.getElementById("viewport");
+
+			// //rem 布局 加上这个不加这个是一样的
+			// meta.setAttribute("content", `width=device-width,initial-scale=${1/ratio},user-scalable=no`);
+
+			// document.documentElement.style.fontSize="100px";
+
+			// //375px
+
+			document.documentElement.style.fontSize=document.documentElement.clientWidth/640*100+"px";
+
+			// // document.documentElement.style.fontSize=100+"px";
+
+		</script>
+
+
+		<style>
+			
+			#box{
+				width: 6.4rem;
+				height: 1rem;
+				background-color: #14c145;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			
+		</div>
+	</body>
+
+</html>
