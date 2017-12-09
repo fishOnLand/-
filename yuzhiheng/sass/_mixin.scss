@@ -1,0 +1,40 @@
+@mixin margin-value($top, $right, $bottom, $left) {
+    margin: $top $right $bottom $left;
+}
+@mixin padding-value($top,$right,$bottom,$left){
+    padding:$top $right $bottom $left;
+}
+@mixin opacity-value($opacity) {
+    opacity: $opacity;
+    filter: alpha(opacity=$opacity * 100)
+}
+@mixin border-value($size,$wire,$color){
+    border: $size $wire $color;
+}
+%public{
+    margin: 0 auto;
+    width:280px;
+    height: 70px;
+    margin-top: 12px;
+    position: relative;
+    
+    i{
+        width: 92px;
+        height: 1px;
+        background: #c7c7c7;       
+        position: absolute;
+        top: 35px;
+    }
+    h3{       
+        text-align: center;
+        font: 24px/70px "";
+        color: #3f3f3f;       
+    }
+    .pub-1{
+        left: 0;
+    }
+    .pub-2{
+        right: 0;
+    }
+}
+
