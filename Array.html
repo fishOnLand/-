@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*var arr = [1,2,3,4,5];
+			console.log(Array.isArray(arr));
+			push()//添加到数组末尾
+			pop()//删除末尾的一个数组元素
+			shift()//删除首部一个元素
+			unshift//添加到首部
+			reverse//颠倒数组的排序
+			sort//给数组排序，但遵循字符串排序原理*/
+			/*concat//追加数据，创建一个新数组，不改变原数组
+			slice//不改变原数组，将原数组的指定区域提取出来
+			splice//截取原数组中指定的数据，会改变原数组
+				  //splice(a,b)若只有二个参数，则表示删除
+				  //splice(a,0,b)若有三个或以上的参数，且第二个参数为0表示插入--->在下标为a的位置插入b				  
+				  //splice(a,1,b)若有三个或以上的参数.且第二个参数不为0，表示替换--->在下标为a的位置替换成b,1表示替换的长度
+			join//链接数组中的元素，返回字符串，不传参则以逗号链接
+			
+			var arr = [1,2,3,4,5]
+			//arr.splice(2,4)//[1,2]
+			//arr.splice(2,0,'我是三')//[1, 2, "我是三", 3, 4, 5]
+			arr.splice(2,2,'我是三')
+			console.log(arr)*/
+			/*var arr = [23,4,1,56,43,60,8,5];
+			arr.sort(com);
+			function com(a,b){
+				if(a>b){
+					return -1;//表示不交换值
+				}else{
+					return 1;//表示交换值
+				}
+			}
+			console.log(arr)*/
+			
+			//数组排序
+			
+			//冒泡排序
+			/*var arr = [23,4,1,56,43,60,8,5];
+			for (var i = 0;i<arr.length-1;i++) {
+				for (var j = 0;j<arr.length-1-i;j++) {
+					if (arr[j]>arr[j+1]) {
+						var temp = arr[j];
+						arr[j]=arr[j+1];
+						arr[j+1]=temp
+					}
+				}
+			}
+			console.log(arr)*/
+			
+			/*//快速排序
+			var arr = [6,2,19999,7,34,56,500,29,123,6666];			
+			//利用递归的方法
+			function quicksort(arr){
+				if (Array.isArray(arr)) {
+					if (arr.length<=1) {
+						return arr;
+					}
+					var left = [];
+					var right = [];
+					var midIndex = Math.floor(arr.length/2);
+					var midValue = arr.splice(midIndex,1)
+					for (var i=0;i<arr.length;i++) {
+						if (arr[i]<midValue) {
+							left.push(arr[i])
+						}else{
+							right.push(arr[i])
+						}
+					}
+					return quicksort(left).concat(midValue,quicksort(right));			
+				}else{
+					throw new Error('please input a right array')
+				}
+				
+			}			
+			quicksort(arr);*/
+			
+			//选择排序
+			//假设最小索引值再一一比较
+			/*var arr = [6,2,19999,7,34,56,500,29,123,6666];	
+			for (var i = 0;i<arr.length;i++) {
+				var minIndex=i;
+				for (var j=i+1;j<arr.length;j++) {
+					if (arr[j]<arr[minIndex]) {
+						minIndex=j;
+					}
+				}
+				if (minIndex!=i) {
+					var tem = arr[minIndex];
+					arr[minIndex]=arr[i];
+					arr[i]=tem;
+				}			
+			}
+			console.log(arr)*/
+			
+			//数组的遍历方法
+			//1for循环
+/*			var arr = [66,22,33,88,99,55,11]
+			for (var i = 0; i<arr.length;i++) {
+				//console.log(arr[i])
+			}
+			//2.for in
+			for (var i in arr) {
+				//console.log(arr[i],i)
+			}
+			//3.for of
+			for (var i of arr) {
+				//console.log(i)
+			}
+			//4.foreach
+			arr.forEach(function(value,index){
+				//console.log(value,index)//value-值 index-索引
+			})
+			//5.map
+			arr.map(function(value,index){
+				//console.log(value,index)//value-值 index-索引
+			})
+			var array = arr.map(function(value,index){
+				return value+2//value-值 index-索引
+			})
+			//console.log(array)
+			
+			//6.filter过滤出数组想要的元素
+			function fn(n){
+				return n>=3
+			}
+			var Array = arr.filter(fn);*/
+			//console.log(Array)
+			//7.reduce逐项处理的方法
+			/*var array = arr.reduce(function(pre,cur){
+				return pre+cur
+			})*/
+			//console.log(array)
+			//数组的去重
+			//1.indexOf()
+			/*var array = [1,2,1,3,1,4,2,3,2,4,3,4,5];
+			var arr = []
+			for (var i = 0;i<array.length;i++) {
+				if (arr.indexOf(array[i])<0) {
+					arr.push(array[i])					
+				}
+			}
+			console.log(arr)
+			//2.filter
+			var arr1 = array.filter(function(e,i){
+				return array.indexOf(e)==i
+				
+			})
+			console.log(arr1)
+			//3.foreach
+			var arr2 = []
+			array.forEach(function(value,index){
+				if (array.indexOf(value)==index) {
+					arr2.push(value)
+				}
+			})
+			console.log(arr2)*/
+			var array = [1,2,1,3,1,4,2,3,2,4,3,4,5];
+			var set = new Set(array)
+			var newArr = new Array(...set)
+			console.log(newArr)
+		</script>
+	</body>
+</html>
