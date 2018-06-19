@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // JS语言不支持类，但是可以通过一些变通的方法模拟出类
+        // 1--构造函数法 this关键字指代实例对象
+
+        function Cat(){
+            this.name = "逗逗";
+        }
+        //生成实例的时候，用this关键字
+
+        //其属性和方法 可以定义在prototype上
+        Cat.prototype.sound = function(){
+            alert("喵喵喵")
+        }
+
+        var cat1 = new Cat();
+        alert(cat1.name);
+        alert(cat1.sound)
+
+
+        // 2--Object.create()
+        
+        var Cat = {
+            name:"逗逗",
+            sound:function(){
+                alert("喵喵喵")
+            }
+        };
+
+        // 然后直接用 Object.create()生成实例，不需要使用new
+
+        var cat2 = Object.create(Cat);
+        alert(cat2.name);
+        alert(cat2.sound)
+
+        
+
+        // 3--极简主义法 不使用 new和 prototype
+
+        var Cat = {
+            createNew:function(){
+                //这里是构造函数，用来生成实例，再返回
+
+                var cat = {};
+                cat.name = "doudou";
+                cat.sound = function(){
+                    alert("maiomiaomiao")
+                };
+                return cat;
+            }
+        }
+
+        //再调用createNew方法 就可以生成实例对象
+
+        var cat1 = Cat.createNew();
+        alert(cat1.name);
+        alert(cat1.sound())
+        //此处为什么会有underfind？
+
+
+        // 类的继承
+        // 先定义一个类
+        var People = {
+            createNew:function(){
+                var person = {};
+                person.char = function(){
+                    console.log("睡懒觉")
+                };
+                return person;
+            }
+        }
+
+        //然后在另一个类的createNew()方法中调用上一个类的方法
+
+        var Person1 = {
+            createNew:function(){
+                var person1 = People.createNew();
+                person1.name = "xiaoyu";
+                person1.like = function(){
+                    console.log("music")
+                }
+                return person1;
+            }
+        }
+
+        var me = Person1.createNew();
+        console.log(me.name);
+        console.log(me.like());
+        console.log(me.char())
+
+        // 数据共享
+        // 让所有实例对象都能够读写同一项数据
+        // 此时需要将此数据放在类对象里面，createNew外面即可
+
+        var Person = {
+            name : "xiaoyu",
+            createNew:function(){
+                var person = {};
+                person.getname = function(){alert(Person.name)};
+                person.changename = function(a){Person.name = a};
+                return person;
+            }
+        }
+        
+        var person3 = Person.createNew();
+        var person4 = Person.createNew();
+
+        person3.name // "xiaoyu";
+
+        person3.changename("diandian");
+        person4.name // "diandian"
+
+    </script>
+</body>
+</html>
